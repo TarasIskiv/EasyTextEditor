@@ -5,9 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyTextEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1200"
-        MinHeight="900" MinWidth="1200"
-        MaxHeight="900" MaxWidth="1200">
+        Title="Text Editor" 
+        Height="800"
+        Width="1200"
+        MinHeight="800"
+        MinWidth="1200"
+        MaxHeight="800"
+        MaxWidth="1200"
+        FontSize="20"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
     <Grid>
         <Frame x:Name="MainFrame"/>
 

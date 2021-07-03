@@ -23,6 +23,7 @@ namespace EasyTextEditor
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Content = new StartPage();
         }
     }
 }
