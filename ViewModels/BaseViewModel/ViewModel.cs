@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EasyTextEditor.ViewModels.BaseViewModel
 {
-    internal abstract class ViewModel : INotifyPropertyChanged
+    internal abstract class ViewModel : INotifyPropertyChanged, IDisposable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -24,6 +24,20 @@ namespace EasyTextEditor.ViewModels.BaseViewModel
             OnPropertychanged(PropertyName);
             return true;
         }
-       
+
+
+        private bool Disposed;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposing || Disposed) return;
+
+            Disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
     }
 }
