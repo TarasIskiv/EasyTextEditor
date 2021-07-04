@@ -2,11 +2,14 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:EasyTextEditor"
-      mc:Ignorable="d" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+      xmlns:vm ="clr-namespace:EasyTextEditor.ViewModels"
+      xmlns:l="clr-namespace:EasyTextEditor"
       d:DesignHeight="800" d:DesignWidth="1200"
       Title="StartPage">
+    <Page.DataContext>
+        <vm:StartPageViewModel></vm:StartPageViewModel>
+    </Page.DataContext>
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,0.9" StartPoint="0.5,0.1">
             <GradientStop Color="White" Offset="0"/>
@@ -19,7 +22,7 @@
             <RowDefinition Height="250"/>
             <RowDefinition Height="250"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Binding Text"
+        <TextBlock Text="{Binding Path=TextBlockField}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="50" 
@@ -33,7 +36,7 @@
                 HorizontalAlignment="Center"
                 BorderBrush="#5992b3"
                 BorderThickness="5"
-                Content="Open"
+                Content="{Binding Path=ButtonOpenField}"
                 FontSize="50" 
                 FontFamily="Times New Roman"
                 FontStyle="Italic"
@@ -46,7 +49,7 @@
                 HorizontalAlignment="Center"
                 BorderBrush="#5992b3"
                 BorderThickness="5"
-                Content="Create"
+                Content="{Binding Path=ButtonCreateField}"
                 FontSize="50" 
                 FontFamily="Times New Roman"
                 FontStyle="Italic"

@@ -23,6 +23,7 @@ namespace EasyTextEditor
         public StartPage()
         {
             InitializeComponent();
+            DataContext = new ViewModels.StartPageViewModel();
         }
     }
 }

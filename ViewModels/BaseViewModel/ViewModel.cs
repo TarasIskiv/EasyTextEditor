@@ -26,13 +26,13 @@ namespace EasyTextEditor.ViewModels.BaseViewModel
         }
 
 
-        private bool Disposed;
+        private bool _Disposed;
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposing || Disposed) return;
+            if (!disposing || _Disposed) return;
 
-            Disposed = true;
+            _Disposed = true;
         }
 
         public void Dispose()
