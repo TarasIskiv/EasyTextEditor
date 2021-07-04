@@ -12,7 +12,7 @@ namespace EasyTextEditor.Infastructure
 
         private readonly Action<Object> _Execute;
         private readonly Func<Object, bool> _CanExecute;
-        LambdaCommand(Action<Object> Execute, Func<Object, bool> CanExecute)
+        public LambdaCommand(Action<Object> Execute, Func<Object, bool> CanExecute)
         {
             _Execute = Execute ?? throw new ArgumentNullException(nameof(Execute));
             _CanExecute = CanExecute;

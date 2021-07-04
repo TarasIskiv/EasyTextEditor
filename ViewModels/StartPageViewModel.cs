@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace EasyTextEditor.ViewModels
 {
@@ -39,6 +40,24 @@ namespace EasyTextEditor.ViewModels
         } = buttonCreateFieldValue;
 
         #endregion
+
+        #region Button Open File Logic
+
+        public ICommand OpenFileCommand { get; }
+
+        private bool CanOpenFileCommand(Object obj) => true;
+
+        private void OnOpenFileCommand(Object obj)
+        {
+
+        }
+
+        #endregion
+
+        public StartPageViewModel()
+        {
+            OpenFileCommand = new Infastructure.LambdaCommand(OnOpenFileCommand, CanOpenFileCommand);
+        }
     }
 
 }
