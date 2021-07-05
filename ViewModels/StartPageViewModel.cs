@@ -31,15 +31,39 @@ namespace EasyTextEditor.ViewModels
 
         #endregion
 
-        #region Button Create File
-        private string buttonCreateField;
-        private readonly static string buttonCreateFieldValue = "Create File";
+        #region Button Save File
+        private string buttonSaveField;
+        private readonly static string buttonSaveFieldValue = "Save";
 
-        public string ButtonCreateField
+        public string ButtonSaveField
         {
             get;
             private set;
-        } = buttonCreateFieldValue;
+        } = buttonSaveFieldValue;
+
+        #endregion
+
+        #region Button SaveAs File
+        private string buttonSaveAsField;
+        private readonly static string buttonSaveAsFieldValue = "Save As";
+
+        public string ButtonSaveAsField
+        {
+            get;
+            private set;
+        } = buttonSaveAsFieldValue;
+
+        #endregion
+
+        #region Button Exit File
+        private string buttonExitField;
+        private readonly static string buttonExitFieldValue = "Exit";
+
+        public string ButtonExitField
+        {
+            get;
+            private set;
+        } = buttonExitFieldValue;
 
         #endregion
 
@@ -56,14 +80,13 @@ namespace EasyTextEditor.ViewModels
 
         #endregion
 
+        #region Button Save Logic
 
-        #region Button Create File Logic
+        public ICommand SaveCommand { get; }
 
-        public ICommand CreateFileCommand { get; }
+        private bool CanSaveCommand(Object obj) => true;
 
-        private bool CanCreateFileCommand(Object obj) => true;
-
-        private void OnCreateFileCommand(Object obj)
+        private void OnSaveCommand(Object obj)
         {
 
            
@@ -73,10 +96,39 @@ namespace EasyTextEditor.ViewModels
 
 
         #endregion
+
+        #region Button Save As Logic
+
+        public ICommand SaveAsCommand { get; }
+
+        private bool CanSaveAsCommand(Object obj) => true;
+
+        private void OnSaveAsCommand(Object obj)
+        {
+
+
+        }
+
+        #endregion
+
+        #region Button Save As Logic
+
+        public ICommand ExitCommand { get; }
+
+        private bool CanExitCommand(Object obj) => true;
+
+        private void OnExitCommand(Object obj)
+        {
+            Application.Current.Shutdown();
+        }
+
+        #endregion
         public StartPageViewModel()
         {
             OpenFileCommand = new Infastructure.LambdaCommand(OnOpenFileCommand, CanOpenFileCommand);
-            CreateFileCommand = new Infastructure.LambdaCommand(OnCreateFileCommand, CanCreateFileCommand);
+            SaveCommand = new Infastructure.LambdaCommand(OnSaveCommand, CanSaveCommand);
+            SaveAsCommand = new Infastructure.LambdaCommand(OnSaveAsCommand, CanSaveAsCommand);
+            ExitCommand = new Infastructure.LambdaCommand(OnExitCommand, CanExitCommand);
         }
     }
 

@@ -17,11 +17,58 @@
         </LinearGradientBrush>
     </Page.Background>
     <Grid>
-        <Grid.RowDefinitions >
-            <RowDefinition Height="300" />
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="250"/>
-        </Grid.RowDefinitions>
+        <Border Height="80" VerticalAlignment="Top" BorderBrush="Blue" BorderThickness="3">
+            <DockPanel >
+                <Button  
+                    Width="350"
+                    Margin="5 5 0 5"
+                    BorderBrush="#5992b3"
+                    BorderThickness="2"
+                    Content="{Binding Path=ButtonOpenField}"
+                    FontSize="30" 
+                    FontFamily="Times New Roman"
+                    FontStyle="Italic"
+                    FontWeight="Bold"
+                    Command="{Binding Path=OpenFileCommand}"/>
+                <Button
+                    Margin="5 5 0 5"
+                    Width="350"
+                    HorizontalAlignment="Left"
+                    BorderBrush="#5992b3"
+                    BorderThickness="2"
+                    Content="{Binding Path=ButtonSaveField}"
+                    FontSize="30" 
+                    FontFamily="Times New Roman"
+                    FontStyle="Italic"
+                    FontWeight="Bold"
+                    Command="{Binding Path=SaveCommand}"/>
+                <Button  
+                    Width="350"
+                    Margin="5 5 0 5"
+                    BorderBrush="#5992b3"
+                    BorderThickness="2"
+                    Content="{Binding Path=ButtonSaveAsField}"
+                    FontSize="30" 
+                    FontFamily="Times New Roman"
+                    FontStyle="Italic"
+                    FontWeight="Bold"
+                    Command="{Binding Path=SaveAsCommand}"/>
+                <Button
+                    Margin="5 5 0 5" 
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    BorderBrush="DarkRed"
+                    Background="Red"
+                    Foreground="Black"
+                    BorderThickness="3"
+                    Content="{Binding Path=ButtonExitField}"
+                    FontSize="30" 
+                    FontFamily="Times New Roman"
+                    FontStyle="Italic"
+                    FontWeight="Bold"
+                    Command="{Binding Path=ExitCommand}"/>
+            </DockPanel>
+        </Border>
         <TextBlock Text="{Binding Path=TextBlockField}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
@@ -29,32 +76,6 @@
                    FontFamily="Times New Roman"
                    FontStyle="Italic"
                    FontWeight="Bold"/>
-        <Button Grid.Row="1" 
-                Width="800"
-                Height="150"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                BorderBrush="#5992b3"
-                BorderThickness="5"
-                Content="{Binding Path=ButtonOpenField}"
-                FontSize="50" 
-                FontFamily="Times New Roman"
-                FontStyle="Italic"
-                FontWeight="Bold"
-                Command="{Binding Path=OpenFileCommand}"/>
-        <Button Grid.Row="2"
-                Width="800"
-                Height="150"
-                Margin="0 -40 0 0"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                BorderBrush="#5992b3"
-                BorderThickness="5"
-                Content="{Binding Path=ButtonCreateField}"
-                FontSize="50" 
-                FontFamily="Times New Roman"
-                FontStyle="Italic"
-                FontWeight="Bold"
-                Command="{Binding Path=CreateFileCommand}"/>
+        
     </Grid>
 </Page>
