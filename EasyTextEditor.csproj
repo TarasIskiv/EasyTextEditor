@@ -66,7 +66,6 @@
     <Compile Include="Infastructure\BaseCommand\Command.cs" />
     <Compile Include="Infastructure\LambdaCommand.cs" />
     <Compile Include="Models\Document.cs" />
-    <Compile Include="Models\FileData.cs" />
     <Compile Include="Pages\CreatingFilePage.xaml.cs">
       <DependentUpon>CreatingFilePage.xaml</DependentUpon>
     </Compile>
@@ -74,10 +73,6 @@
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\CreatingFilePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\CreatingFileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -90,11 +85,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\BaseViewModel\ViewModel.cs" />
-    <Compile Include="ViewModels\CreatingFilePageViewModel.cs" />
     <Compile Include="ViewModels\StartPageViewModel.cs" />
-    <Compile Include="Windows\CreatingFileWindow.xaml.cs">
-      <DependentUpon>CreatingFileWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

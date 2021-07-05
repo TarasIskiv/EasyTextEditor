@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,15 @@ namespace EasyTextEditor.ViewModels
 {
     internal class StartPageViewModel : BaseViewModel.ViewModel
     {
+        #region Text Content
+        private string content;
+        public string Content 
+        {
+            get => content;
+            set => Set(ref content, value); 
+        }
 
+        #endregion
         #region Button Open File
         private string buttonOpenField;
         private readonly static string buttonOpenFieldValue = "Open File";
@@ -51,6 +60,7 @@ namespace EasyTextEditor.ViewModels
 
         #region Button Exit File
         private string buttonExitField;
+        private object txtEditor;
         private readonly static string buttonExitFieldValue = "Exit";
 
         public string ButtonExitField
@@ -82,9 +92,15 @@ namespace EasyTextEditor.ViewModels
 
         private void OnSaveCommand(Object obj)
         {
-
-           
-           
+            if(Models.Document.FilePath == null)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                //working
+            }else
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                //working
+            }
             
         }
 
@@ -99,17 +115,20 @@ namespace EasyTextEditor.ViewModels
 
         private void OnSaveAsCommand(Object obj)
         {
-            new Windows.CreatingFileWindow();
-            //saving
-            // get content from field
-            //make 2 property and set
-            //SaveFileDialog
-            //MessageBox.Show("Saved");
+            Models.Document.Content = content;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == true) {
+                File.WriteAllText(saveFileDialog.FileName, Models.Document.Content);
+                MessageBox.Show(saveFileDialog.FileName);
+                MessageBox.Show("Saved");
+                Models.Document.FilePath = null;
+            }
         }
+        
 
         #endregion
 
-        #region Button Save As Logic
+        #region Button Exit Logic
 
         public ICommand ExitCommand { get; }
 
