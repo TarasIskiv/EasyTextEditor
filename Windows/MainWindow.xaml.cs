@@ -25,5 +25,7 @@ namespace EasyTextEditor
             InitializeComponent();
             MainFrame.Content = new StartPage();
         }
+
+        
     }
 }

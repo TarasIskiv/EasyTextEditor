@@ -65,8 +65,9 @@ namespace EasyTextEditor.ViewModels
 
         private void OnCreateFileCommand(Object obj)
         {
+
            
-            
+           
             
         }
 
