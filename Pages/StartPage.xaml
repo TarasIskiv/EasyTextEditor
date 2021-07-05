@@ -40,7 +40,8 @@
                 FontSize="50" 
                 FontFamily="Times New Roman"
                 FontStyle="Italic"
-                FontWeight="Bold"/>
+                FontWeight="Bold"
+                Command="{Binding Path=OpenFileCommand}"/>
         <Button Grid.Row="2"
                 Width="800"
                 Height="150"
@@ -53,6 +54,7 @@
                 FontSize="50" 
                 FontFamily="Times New Roman"
                 FontStyle="Italic"
-                FontWeight="Bold"/>
+                FontWeight="Bold"
+                Command="{Binding Path=CreateFileCommand}"/>
     </Grid>
 </Page>

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace EasyTextEditor.ViewModels
 {
@@ -49,14 +51,31 @@ namespace EasyTextEditor.ViewModels
 
         private void OnOpenFileCommand(Object obj)
         {
-
+            
         }
 
         #endregion
 
+
+        #region Button Create File Logic
+
+        public ICommand CreateFileCommand { get; }
+
+        private bool CanCreateFileCommand(Object obj) => true;
+
+        private void OnCreateFileCommand(Object obj)
+        {
+           
+            
+            
+        }
+
+
+        #endregion
         public StartPageViewModel()
         {
             OpenFileCommand = new Infastructure.LambdaCommand(OnOpenFileCommand, CanOpenFileCommand);
+            CreateFileCommand = new Infastructure.LambdaCommand(OnCreateFileCommand, CanCreateFileCommand);
         }
     }
 
