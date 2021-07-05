@@ -11,13 +11,6 @@ namespace EasyTextEditor.ViewModels
 {
     internal class StartPageViewModel : BaseViewModel.ViewModel
     {
-        #region Text Block
-        private string textBlockField;
-        private readonly static string textBlockFieldValue = "Welcome to Text Editor";
-
-        public string TextBlockField { get; private set; } = textBlockFieldValue;
-
-        #endregion
 
         #region Button Open File
         private string buttonOpenField;

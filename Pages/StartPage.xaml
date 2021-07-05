@@ -17,9 +17,10 @@
         </LinearGradientBrush>
     </Page.Background>
     <Grid>
-        <Border Height="80" VerticalAlignment="Top" BorderBrush="Blue" BorderThickness="3">
-            <DockPanel >
-                <Button  
+        <StackPanel Height="800">
+            <Border Height="80" VerticalAlignment="Top" BorderBrush="Blue" BorderThickness="3">
+                <DockPanel >
+                    <Button  
                     Width="350"
                     Margin="5 5 0 5"
                     BorderBrush="#5992b3"
@@ -30,7 +31,7 @@
                     FontStyle="Italic"
                     FontWeight="Bold"
                     Command="{Binding Path=OpenFileCommand}"/>
-                <Button
+                    <Button
                     Margin="5 5 0 5"
                     Width="350"
                     HorizontalAlignment="Left"
@@ -42,7 +43,7 @@
                     FontStyle="Italic"
                     FontWeight="Bold"
                     Command="{Binding Path=SaveCommand}"/>
-                <Button  
+                    <Button  
                     Width="350"
                     Margin="5 5 0 5"
                     BorderBrush="#5992b3"
@@ -53,7 +54,7 @@
                     FontStyle="Italic"
                     FontWeight="Bold"
                     Command="{Binding Path=SaveAsCommand}"/>
-                <Button
+                    <Button
                     Margin="5 5 0 5" 
                     Width="100"
                     HorizontalAlignment="Left"
@@ -67,15 +68,21 @@
                     FontStyle="Italic"
                     FontWeight="Bold"
                     Command="{Binding Path=ExitCommand}"/>
-            </DockPanel>
-        </Border>
-        <TextBlock Text="{Binding Path=TextBlockField}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="50" 
-                   FontFamily="Times New Roman"
-                   FontStyle="Italic"
-                   FontWeight="Bold"/>
-        
+                </DockPanel>
+            </Border>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Height="681" BorderBrush="Blue" BorderThickness="3,0,0,3" >
+                    <StackPanel />
+                </Border>
+                <Border Grid.Column="1" Height="681" BorderBrush="Blue" BorderThickness="3,0,3,3" Background="White">
+                    <RichTextBox/>
+                </Border>
+            </Grid>
+        </StackPanel>
+
     </Grid>
 </Page>
