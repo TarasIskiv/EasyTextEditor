@@ -79,7 +79,15 @@ namespace EasyTextEditor.ViewModels
 
         private void OnOpenFileCommand(Object obj)
         {
-            
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Models.Document.FilePath = openFileDialog.FileName;
+                content = File.ReadAllText(Models.Document.FilePath);
+                MessageBox.Show(content);
+            }
+            Set(ref content, content);
         }
 
         #endregion
@@ -95,11 +103,18 @@ namespace EasyTextEditor.ViewModels
             if(Models.Document.FilePath == null)
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
-                //working
-            }else
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    File.WriteAllText(saveFileDialog.FileName, content);
+                    MessageBox.Show("Saved");
+                    Models.Document.FilePath = null;
+                }
+            }
+            else
             {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                //working
+                File.WriteAllText(Models.Document.FilePath, content);
+                MessageBox.Show("Saved");
+                Models.Document.FilePath = null;
             }
             
         }
@@ -115,11 +130,10 @@ namespace EasyTextEditor.ViewModels
 
         private void OnSaveAsCommand(Object obj)
         {
-            Models.Document.Content = content;
+            Models.Document.Content = Content;
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             if (saveFileDialog.ShowDialog() == true) {
-                File.WriteAllText(saveFileDialog.FileName, Models.Document.Content);
-                MessageBox.Show(saveFileDialog.FileName);
+                File.WriteAllText(saveFileDialog.FileName, content);
                 MessageBox.Show("Saved");
                 Models.Document.FilePath = null;
             }

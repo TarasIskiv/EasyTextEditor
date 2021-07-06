@@ -66,16 +66,9 @@
     <Compile Include="Infastructure\BaseCommand\Command.cs" />
     <Compile Include="Infastructure\LambdaCommand.cs" />
     <Compile Include="Models\Document.cs" />
-    <Compile Include="Pages\CreatingFilePage.xaml.cs">
-      <DependentUpon>CreatingFilePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\CreatingFilePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
