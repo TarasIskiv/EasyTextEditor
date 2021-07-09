@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Navigation;
 
 namespace EasyTextEditor.ViewModels
@@ -154,12 +155,82 @@ namespace EasyTextEditor.ViewModels
         }
 
         #endregion
+
+        #region Text Alignment
+        private string alignmentPosition = "Left";
+        
+
+
+        public string AlignmentPosition 
+        {
+            get => alignmentPosition; 
+            set => Set(ref alignmentPosition, value); 
+        }
+
+        public ICommand CenterAlignCommand { get; }
+
+        private bool CanCenterAlignCommand(Object obj) => true;
+
+        private void OnCenterAlignCommand(Object obj)
+        {
+            AlignmentPosition = "Center";
+        }
+
+        public ICommand LeftAlignCommand { get; }
+
+        private bool CanLeftAlignCommand(Object obj) => true;
+
+        private void OnLeftAlignCommand(Object obj)
+        {
+            AlignmentPosition = "Left";
+        }
+
+
+        public ICommand RightAlignCommand { get; }
+
+        private bool CanRightAlignCommand(Object obj) => true;
+
+        private void OnRightAlignCommand(Object obj)
+        {
+            AlignmentPosition = "Right";
+        }
+
+        #endregion
+
+
+        
+
+
+        #region Font Family
+        private string selectedFont = "Arial";
+
+
+        public string SelectedFont
+
+        {
+            get => selectedFont; 
+            set => Set(ref selectedFont, value);
+        }
+
+        private string[] fontFamilies;
+        public string[] FontFamilies 
+        {
+            get => fontFamilies;
+            set => Set(ref fontFamilies, value);
+        }
+
+        #endregion
         public StartPageViewModel()
         {
             OpenFileCommand = new Infastructure.LambdaCommand(OnOpenFileCommand, CanOpenFileCommand);
             SaveCommand = new Infastructure.LambdaCommand(OnSaveCommand, CanSaveCommand);
             SaveAsCommand = new Infastructure.LambdaCommand(OnSaveAsCommand, CanSaveAsCommand);
             ExitCommand = new Infastructure.LambdaCommand(OnExitCommand, CanExitCommand);
+
+            CenterAlignCommand = new Infastructure.LambdaCommand(OnCenterAlignCommand, CanCenterAlignCommand);
+            RightAlignCommand = new Infastructure.LambdaCommand(OnRightAlignCommand, CanRightAlignCommand);
+            LeftAlignCommand = new Infastructure.LambdaCommand(OnLeftAlignCommand, CanLeftAlignCommand);
+            FontFamilies = new Models.AllFonts().Fonts;
         }
     }
 

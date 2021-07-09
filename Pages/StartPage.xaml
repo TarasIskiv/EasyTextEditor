@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+      xmlns:fa="http://schemas.fontawesome.com/icons/"
       xmlns:vm ="clr-namespace:EasyTextEditor.ViewModels"
       xmlns:l="clr-namespace:EasyTextEditor"
       d:DesignHeight="800" d:DesignWidth="1200"
@@ -82,16 +83,71 @@
             </Border>
             <Grid Height="720">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="50"/>
                     <RowDefinition Height="80*"/>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0"  BorderBrush="Blue" BorderThickness=" 3 0 3 3" >
-                    <StackPanel />
+                    <DockPanel>
+                        <Button Height="40"
+                                Width="60"
+                                Margin="1"
+                                Background="LightGray"
+                                HorizontalAlignment="Left"
+                                Command="{Binding Path=LeftAlignCommand}">
+                            <fa:ImageAwesome Icon="Solid_AlignLeft" Height="39"/>
+                        </Button>
+                        <Button 
+                            Height="40"
+                            Width="60"
+                            Margin="1"
+                            Background="LightGray"
+                            HorizontalAlignment="Left"
+                            Command="{Binding Path=CenterAlignCommand}">
+                            <fa:ImageAwesome Icon="Solid_AlignCenter" Height="39"/>
+                        </Button>
+                        <Button 
+                            Height="40"
+                            Width="60"
+                            Margin="1"
+                            Background="LightGray"
+                            HorizontalAlignment="Left"
+                            Command="{Binding Path=RightAlignCommand}">
+                            <fa:ImageAwesome Icon="Solid_AlignRight" Height="39"/>
+                        </Button>
+                        <Menu Width="300" 
+                              HorizontalAlignment="Left"
+                              Margin="10 0 0 0"
+                              BorderBrush="Blue"
+                              BorderThickness="3 0 3 1">
+                            <MenuItem Width="300">
+                                <MenuItem.Header >
+                                    <DockPanel Width="150">
+                                        <fa:ImageAwesome Icon="Solid_Font"
+                                                         Height="30"
+                                                         VerticalAlignment="Center"/>
+                                        <TextBlock Text="Fonts"
+                                                   VerticalAlignment="Center" 
+                                                   HorizontalAlignment="Center" 
+                                                   FontSize="35" 
+                                                   FontWeight="Bold"
+                                                   Height="40"
+                                                   Foreground="Black"/>
+                                    </DockPanel>
+                                </MenuItem.Header>
+                        <ComboBox ItemsSource="{Binding FontFamilies, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedItem="{Binding Path=SelectedFont}"
+                                  Width="200"/>
+                            </MenuItem>
+                        </Menu>
+                    </DockPanel>
                 </Border>
-                <Border Grid.Row="1" Width="1200" BorderBrush="Blue" BorderThickness="3,0,3,3" Background="White">
-                    <TextBox AcceptsReturn="True"
+                <Border Grid.Row="1" BorderBrush="Blue" BorderThickness="3,0,3,3" Background="White">
+                    <TextBox Margin="5 0 5 0"
+                             AcceptsReturn="True"
                              AcceptsTab="True"
-                             Text="{Binding XPath=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                             FontFamily="{Binding SelectedFont, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding XPath=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             HorizontalContentAlignment="{Binding Path=AlignmentPosition, UpdateSourceTrigger=PropertyChanged}"/>
                 </Border>
             </Grid>
         </StackPanel>

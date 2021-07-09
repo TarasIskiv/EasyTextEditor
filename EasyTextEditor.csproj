@@ -71,6 +71,7 @@
     </ApplicationDefinition>
     <Compile Include="Infastructure\BaseCommand\Command.cs" />
     <Compile Include="Infastructure\LambdaCommand.cs" />
+    <Compile Include="Models\AllFonts.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Pages\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
