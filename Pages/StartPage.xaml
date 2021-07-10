@@ -91,7 +91,7 @@
                         <Button Height="40"
                                 Width="60"
                                 Margin="1"
-                                Background="LightGray"
+                                Background="{Binding LeftAlignBack}"
                                 HorizontalAlignment="Left"
                                 Command="{Binding Path=LeftAlignCommand}">
                             <fa:ImageAwesome Icon="Solid_AlignLeft" Height="39"/>
@@ -100,7 +100,7 @@
                             Height="40"
                             Width="60"
                             Margin="1"
-                            Background="LightGray"
+                            Background="{Binding CenterAlignBack}"
                             HorizontalAlignment="Left"
                             Command="{Binding Path=CenterAlignCommand}">
                             <fa:ImageAwesome Icon="Solid_AlignCenter" Height="39"/>
@@ -109,7 +109,7 @@
                             Height="40"
                             Width="60"
                             Margin="1"
-                            Background="LightGray"
+                            Background="{Binding RightAlignBack}"
                             HorizontalAlignment="Left"
                             Command="{Binding Path=RightAlignCommand}">
                             <fa:ImageAwesome Icon="Solid_AlignRight" Height="39"/>

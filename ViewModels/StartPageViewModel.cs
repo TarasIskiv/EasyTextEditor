@@ -174,6 +174,9 @@ namespace EasyTextEditor.ViewModels
         private void OnCenterAlignCommand(Object obj)
         {
             AlignmentPosition = "Center";
+            LeftAlignBack = "LightGray";
+            RightAlignBack = "LightGray";
+            CenterAlignBack = "Gray";
         }
 
         public ICommand LeftAlignCommand { get; }
@@ -183,6 +186,9 @@ namespace EasyTextEditor.ViewModels
         private void OnLeftAlignCommand(Object obj)
         {
             AlignmentPosition = "Left";
+            LeftAlignBack = "Gray";
+            RightAlignBack = "LightGray";
+            CenterAlignBack = "LightGray";
         }
 
 
@@ -193,6 +199,9 @@ namespace EasyTextEditor.ViewModels
         private void OnRightAlignCommand(Object obj)
         {
             AlignmentPosition = "Right";
+            LeftAlignBack = "LightGray";
+            RightAlignBack = "Gray";
+            CenterAlignBack = "LightGray";
         }
 
         #endregion
@@ -218,6 +227,7 @@ namespace EasyTextEditor.ViewModels
         #endregion
 
         #region Font Size
+
         private int selectedSize = 8;
 
 
@@ -234,6 +244,21 @@ namespace EasyTextEditor.ViewModels
             get => fontSizes;
             set => Set(ref fontSizes, value);
         }
+        
+
+        #endregion
+
+        #region Button BackGround
+        private string leftAlignBack = "Gray";
+        private string centerAlignBack = "LightGray";
+        private string rightAlignBack = "LightGray";
+
+        public string LeftAlignBack 
+        { get => leftAlignBack; set => Set(ref leftAlignBack, value); }
+        public string CenterAlignBack 
+        { get => centerAlignBack; set => Set(ref centerAlignBack, value); }
+        public string RightAlignBack 
+        { get => rightAlignBack; set => Set(ref rightAlignBack, value); }
 
         #endregion
         public StartPageViewModel()
