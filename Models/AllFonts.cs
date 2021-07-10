@@ -19,6 +19,16 @@ namespace EasyTextEditor.Models
              "Times New Roman",
         };
 
-        public AllFonts() { }
+        public int[] Size;
+
+        public AllFonts() 
+        {
+            Size = new int[35];
+            for(int i = 0, j = 8; i < Size.Length; ++i)
+            {
+                Size[i] = j;
+                j += 2;
+            }
+        }
     }
 }

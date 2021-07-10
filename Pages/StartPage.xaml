@@ -139,12 +139,38 @@
                                   Width="200"/>
                             </MenuItem>
                         </Menu>
+                        <Menu Width="300"
+                              HorizontalAlignment="Left"
+                              Margin="10 0 0 0"
+                              BorderBrush="Blue"
+                              BorderThickness="3 0 3 1">
+                            <MenuItem Width="300">
+                                <MenuItem.Header >
+                                    <DockPanel Width="150">
+                                        <fa:ImageAwesome Icon="Solid_TextHeight"
+                                                         Height="25"
+                                                         VerticalAlignment="Center"/>
+                                        <TextBlock Text="Sizes"
+                                                   VerticalAlignment="Center" 
+                                                   HorizontalAlignment="Center" 
+                                                   FontSize="30" 
+                                                   FontWeight="Bold"
+                                                   Height="40"
+                                                   Foreground="Black"/>
+                                    </DockPanel>
+                                </MenuItem.Header>
+                                <ComboBox ItemsSource="{Binding FontSizes, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedItem="{Binding SelectedSize}"
+                                      Width="120"/>
+                            </MenuItem>
+                        </Menu>
                     </DockPanel>
                 </Border>
                 <Border Grid.Row="1" BorderBrush="Blue" BorderThickness="3,0,3,3" Background="White">
                     <TextBox Margin="5 0 5 0"
                              AcceptsReturn="True"
                              AcceptsTab="True"
+                             FontSize="{Binding SelectedSize, UpdateSourceTrigger=PropertyChanged}"
                              FontFamily="{Binding SelectedFont, UpdateSourceTrigger=PropertyChanged}"
                              Text="{Binding XPath=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              HorizontalContentAlignment="{Binding Path=AlignmentPosition, UpdateSourceTrigger=PropertyChanged}"/>

@@ -197,10 +197,6 @@ namespace EasyTextEditor.ViewModels
 
         #endregion
 
-
-        
-
-
         #region Font Family
         private string selectedFont = "Arial";
 
@@ -220,6 +216,26 @@ namespace EasyTextEditor.ViewModels
         }
 
         #endregion
+
+        #region Font Size
+        private int selectedSize = 8;
+
+
+        public int SelectedSize
+
+        {
+            get => selectedSize;
+            set => Set(ref selectedSize, value);
+        }
+
+        private int[] fontSizes;
+        public int[] FontSizes
+        {
+            get => fontSizes;
+            set => Set(ref fontSizes, value);
+        }
+
+        #endregion
         public StartPageViewModel()
         {
             OpenFileCommand = new Infastructure.LambdaCommand(OnOpenFileCommand, CanOpenFileCommand);
@@ -231,6 +247,7 @@ namespace EasyTextEditor.ViewModels
             RightAlignCommand = new Infastructure.LambdaCommand(OnRightAlignCommand, CanRightAlignCommand);
             LeftAlignCommand = new Infastructure.LambdaCommand(OnLeftAlignCommand, CanLeftAlignCommand);
             FontFamilies = new Models.AllFonts().Fonts;
+            FontSizes = new Models.AllFonts().Size;
         }
     }
 
