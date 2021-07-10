@@ -85,10 +85,9 @@ namespace EasyTextEditor.ViewModels
             if (openFileDialog.ShowDialog() == true)
             {
                 Models.Document.FilePath = openFileDialog.FileName;
-                content = File.ReadAllText(Models.Document.FilePath);
-                MessageBox.Show(content);
+                Content = File.ReadAllText(Models.Document.FilePath);
             }
-            Set(ref content, content);
+            
         }
 
         #endregion
