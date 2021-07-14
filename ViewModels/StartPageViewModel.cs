@@ -85,7 +85,8 @@ namespace EasyTextEditor.ViewModels
             if (openFileDialog.ShowDialog() == true)
             {
                 Models.Document.FilePath = openFileDialog.FileName;
-                Content = File.ReadAllText(Models.Document.FilePath);
+                string val = File.ReadAllText(Models.Document.FilePath);
+                Content = val;
             }
             
         }

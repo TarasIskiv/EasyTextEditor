@@ -167,12 +167,13 @@
                     </DockPanel>
                 </Border>
                 <Border Grid.Row="1" BorderBrush="Blue" BorderThickness="3,0,3,3" Background="White">
-                    <TextBox Margin="5 0 5 0"
+                    <TextBox Margin="10"
                              AcceptsReturn="True"
                              AcceptsTab="True"
+                             Foreground="Black"
                              FontSize="{Binding SelectedSize, UpdateSourceTrigger=PropertyChanged}"
                              FontFamily="{Binding SelectedFont, UpdateSourceTrigger=PropertyChanged}"
-                             Text="{Binding XPath=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              HorizontalContentAlignment="{Binding Path=AlignmentPosition, UpdateSourceTrigger=PropertyChanged}"/>
                 </Border>
             </Grid>
